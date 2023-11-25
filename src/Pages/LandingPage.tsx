@@ -13,7 +13,7 @@ const LandingPage = () => {
         <Text className='landing-translation' style={{ fontFamily: 'Poppins', fontSize: 15 }} onClick={() => { navigator('/register') }}>Become A Candidate</Text>
       </Row>
       <Row justify={'center'} style={{ marginTop: '5vh' }}>
-        <img src='/hero.png' />
+        <img src='/hero.svg' />
       </Row>
       <Space style={{ marginTop: 15 }} direction={'vertical'} align={'center'}>
         <Title level={1} style={{ fontFamily: 'Poppins', opacity: '0.9', textAlign: 'center' }}>Show Your Coding Skills</Title>
@@ -37,7 +37,7 @@ const LandingPage = () => {
           </div>
         </div>
         <Title level={1} style={{ fontFamily: 'Poppins', opacity: '0.9', textAlign: 'center', marginBottom: 20 }}>Languages To Be Tested On</Title>
-        <img src='/languages.png' style={{ marginBottom: 30 }} />
+        <img src='/Img.svg' style={{ marginBottom: 30 }} />
         <div style={{ backgroundImage: "url('/bg.png')", backgroundSize: "cover", padding: '25px 10px', width: '90vw', position: 'relative', left: '-5px', marginBottom: 60 }}>
           <Title level={1} style={{ fontFamily: 'Poppins', opacity: '0.9', textAlign: 'center', marginBottom: 20 }}>Register And Be Part of This</Title>
           <img src='/group.png' style={{ marginLeft: '5%' }} />

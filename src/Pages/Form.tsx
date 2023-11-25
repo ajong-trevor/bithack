@@ -1,9 +1,9 @@
 import FormItem from 'antd/es/form/FormItem'
 import {Button, Col, Form, Input, Row, Select, Space, Typography, Upload, message} from 'antd'
 import React, { useState } from 'react'
-import { handleFileUpload, storeRegistrator } from '../API/api'
 import { useNavigate } from 'react-router-dom'
 import { UploadOutlined } from '@ant-design/icons'
+import { storeRegistrator } from '../API/api'
 
 const {Text, Title}= Typography
 
@@ -52,25 +52,17 @@ const FormFile = () => {
     message.error('An Error Occured')
   }
 
-  const handleUpload = (info: any) => {
-    console.log(info)
-    handleFileUpload(info.file.originFileObj);
-    if (info.file.status === 'error') {
-      message.error(`${info.file.name} file upload failed`);
-    }
-  }
-
   const Payer=(value: string)=>{
     setLevel(value)
     switch (value) {
       case 'L200':
-          setAmount("tel:*126*9*672772429*1000#")
+          setAmount("tel:*126*9*672772429*1100#")
         break;
       case 'L300':
-          setAmount("tel:*126*9*672772429*2000#")
+          setAmount("tel:*126*9*672772429*2100#")
         break;
       case 'L400':
-          setAmount("tel:*126*9*672772429*3000#")
+          setAmount("tel:*126*9*672772429*3100#")
         break;
     }
   }
@@ -150,19 +142,7 @@ const FormFile = () => {
           name='transaction_id'
           rules={[{ required: true, message: 'Please enter transaction id' }]}
         >
-          <Upload
-                name="file"
-                // action="/upload"
-                onChange={handleUpload}
-                style={{width:'100%'}}
-              >
-                <Space align={'center'} direction={'vertical'}>
-                  <p className="ant-upload-drag-icon" style={{marginBottom:0}}>
-                    <UploadOutlined />
-                  </p>
-                  <p className="ant-upload-text">Click for file upload</p>
-                </Space>
-          </Upload>        
+          <Input className='shadow' placeholder='Transaction ID from MoMo message' style={{fontFamily: 'Poppins'}}/>
         </FormItem>
         <Row justify={'center'}>
           <Form.Item style={{width:'50%'}}>

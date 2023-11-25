@@ -7,10 +7,7 @@ const Header={
   'x-hasura-admin-secret': 'knTQIEIkzS2D6GIKRND6m3EqGu8yQDN9DQfPNbFg6F28jIUMUu1lAnlCVmNK3gFQ',
 }
 
-const supabaseUrl="https://dggcdkxmgfnrpbdxchul.supabase.co"
-const supabaseKey="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRnZ2Nka3htZ2ZucnBiZHhjaHVsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDA3MzY3NjAsImV4cCI6MjAxNjMxMjc2MH0.gTf2gpwPBGwuqkhMPX0OHxX8kIjgzKvV_pzWoNxrjHM"
 
-const supabase=createClient(supabaseUrl, supabaseKey)
 
 export const storeRegistrator= async (values: any)=>{
   console.log(values)
@@ -47,27 +44,5 @@ export const storeRegistrator= async (values: any)=>{
 
   } catch (e: any) {
     return ["Error", e]
-  }
-}
-
-export const handleFileUpload = async (file: File) => {
-  try {
-    const { data, error } = await supabase.storage
-      .from('test')
-      .upload(file.name, file);
-
-    if (error) {
-      throw new Error('Error uploading file');
-    }
-
-    if (data) {
-      const fileUrl = `${supabaseUrl}/storage/v1/object/public/uploads/${file.name}`;
-      message.success('File uploaded successfully');
-      return fileUrl;
-    }
-  } catch (error) {
-    console.error(error);
-    message.error('Failed to upload file');
-    throw error;
   }
 }
